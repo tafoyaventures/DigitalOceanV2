@@ -44,7 +44,7 @@
     },
 
     "suggest": {
-        "kriswallsmith/buzz": "To use BuzzAdapter, require kriswallsmith/buzz:^0.16.",
+        "kriswallsmith/buzz": "To use BuzzAdapter, require kriswallsmith/buzz:^0.15.2.",
         "guzzlehttp/guzzle" : "To use GuzzleHttpAdapter, require guzzlehttp/guzzle:^5.3|^6.3."
     },
 
