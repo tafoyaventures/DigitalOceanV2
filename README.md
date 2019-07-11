@@ -1,43 +1,16 @@
 DigitalOcean V2
 ===============
 
-Let's consume the [DigitalOcean API V2](https://developers.digitalocean.com/v2/) ([issues](https://github.com/digitalocean/api-v2/issues) /
-[changelog](https://developers.digitalocean.com/documentation/changelog/)) :)
-
-[![Build Status](https://secure.travis-ci.org/toin0u/DigitalOceanV2.png)](http://travis-ci.org/toin0u/DigitalOceanV2)
-[![Latest Stable Version](https://poser.pugx.org/toin0u/digitalocean-v2/v/stable.svg)](https://packagist.org/packages/toin0u/digitalocean-v2)
-[![Total Downloads](https://poser.pugx.org/toin0u/digitalocean-v2/downloads.png)](https://packagist.org/packages/toin0u/digitalocean-v2)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/5b4eac7e-c83b-4913-86e1-72950821757a/mini.png)](https://insight.sensiolabs.com/projects/5b4eac7e-c83b-4913-86e1-72950821757a)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/toin0u/DigitalOceanV2/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/toin0u/DigitalOceanV2/?branch=master)
-[![License](https://poser.pugx.org/toin0u/digitalocean-v2/license.svg)](https://packagist.org/packages/toin0u/digitalocean-v2)
-
 Installation
 ------------
 
-This library can be found on [Packagist](https://packagist.org/packages/toin0u/digitalocean-v2).
-The recommended way to install this is through [composer](http://getcomposer.org).
-We support PHP 7.1-7.3. This library is no longer tested on HHVM.
 
-Run these commands to install composer, the library and its dependencies:
-
-```bash
-$ curl -sS https://getcomposer.org/installer | php
-$ php composer.phar require toin0u/digitalocean-v2:^2.2
-```
-
-You then need to install **one** of the following:
-```bash
-$ php composer.phar require kriswallsmith/buzz:^0.16
-$ php composer.phar require guzzlehttp/guzzle:^5.3
-$ php composer.phar require guzzlehttp/guzzle:^6.3
-```
-
-Or edit `composer.json` and add:
+edit `composer.json` and add:
 
 ```json
 {
     "require": {
-        "toin0u/digitalocean-v2": "^2.2"
+        "toin0u/digitalocean-v2": "^2.3"
     }
 }
 ```
@@ -47,7 +20,7 @@ And then add **one** of the following:
 ```json
 {
     "require": {
-        "kriswallsmith/buzz": "^0.16",
+        "kriswallsmith/buzz": "^0.15.2",
         "guzzlehttp/guzzle": "^5.0",
         "guzzlehttp/guzzle": "^6.0"
     }
@@ -55,81 +28,6 @@ And then add **one** of the following:
 ```
 
 ### Using Laravel? ###
-
-[Laravel DigitalOcean](https://github.com/GrahamCampbell/Laravel-DigitalOcean) by [Graham Campbell](https://github.com/GrahamCampbell) might interest you.
-
-```json
-{
-    "require": {
-        "graham-campbell/digitalocean": "^5.0"
-    }
-}
-```
-
-### Using Symfony2? ###
-
-For Symfony2 users, there is no need to create separate bundle (But you could if you wanted to). Just install `toin0u/digitalocean-v2` via composer and define it as a service. For example:
-
-```yaml
-# YourBundle/Resources/config/services.yml
-parameters:
-    do.class.factory: DigitalOceanV2\DigitalOceanV2
-    do.class.adapter: DigitalOceanV2\Adapter\GuzzleAdapter
-    ....
-
-services:
-    do.adapter:
-        class: %do.class.adapter%
-        public: false
-        arguments: [api_secret]
-
-    do.factory:
-        class: %do.class.factory%
-        arguments: [@do.adapter]
-        public: true # Needed for symfony 3.3+ with autoconfiure/autowire set to true
-
-    ....
-```
-
-Now you can use in container.
-
-```php
-$droplet = $this->container->get('do.factory')->droplet();
-```
-
-Or you could define your service api one by one using a class factory.
-
-```yaml
-parameters:
-    ....
-    do.class.api.droplet: DigitalOceanV2\Api\Droplet
-    do.class.api.action: DigitalOceanV2\Api\Action
-    do.class.api.domain: ...
-
-services:
-    ....
-
-    do.droplet:
-        class: %do.class.api.droplet%
-        factory_service: do.factory
-        factory_method: droplet
-
-    do.action:
-        class: %do.class.api.action%
-        factory_service: do.factory
-        factory_method: action
-
-    do.domain:
-        ....
-```
-
-And now you can use it in the container as
-
-```php
-$droplets = $this->container->get('do.droplet')->getAll();
-```
-
-> This is helpful for a child of `Symfony\Bundle\FrameworkBundle\Controller\Controller` user to use by `$this->get('do.droplet')->getAll()`
 
 Adapter
 -------
@@ -518,12 +416,12 @@ $volume->getActions('506f78a4-e098-11e5-ad9f-000f53306ae1');
 Contributing
 ------------
 
-Please see [CONTRIBUTING](https://github.com/toin0u/DigitalOceanV2/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/tafoyaventures/digitaloceanv2/blob/master/CONTRIBUTING.md) for details.
 
 Changelog
 ---------
 
-Please see [CHANGELOG](https://github.com/toin0u/DigitalOceanV2/blob/master/CHANGELOG.md) for details.
+Please see [CHANGELOG](https://github.com/tafoyaventures/digitaloceanv2/blob/master/CHANGELOG.md) for details.
 
 Credits
 -------
@@ -534,44 +432,10 @@ Credits
 * [Liverbool](https://github.com/liverbool)
 * [Marcos Sigueros](https://github.com/alrik11es)
 * [Chris Fidao](https://github.com/fideloper)
-* [All contributors](https://github.com/toin0u/DigitalOceanV2/contributors)
-
-Support
--------
-
-[Please open an issue in github](https://github.com/toin0u/DigitalOceanV2/issues)
-
-Contributor Code of Conduct
----------------------------
-
-As contributors and maintainers of this project, we pledge to respect all people
-who contribute through reporting issues, posting feature requests, updating
-documentation, submitting pull requests or patches, and other activities.
-
-We are committed to making participation in this project a harassment-free
-experience for everyone, regardless of level of experience, gender, gender
-identity and expression, sexual orientation, disability, personal appearance,
-body size, race, age, or religion.
-
-Examples of unacceptable behavior by participants include the use of sexual
-language or imagery, derogatory comments or personal attacks, trolling, public
-or private harassment, insults, or other unprofessional conduct.
-
-Project maintainers have the right and responsibility to remove, edit, or reject
-comments, commits, code, wiki edits, issues, and other contributions that are
-not aligned to this Code of Conduct. Project maintainers who do not follow the
-Code of Conduct may be removed from the project team.
-
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by opening an issue or contacting one or more of the project
-maintainers.
-
-This Code of Conduct is adapted from the [Contributor
-Covenant](http:contributor-covenant.org), version 1.0.0, available at
-[http://contributor-covenant.org/version/1/0/0/](http://contributor-covenant.org/version/1/0/0/).
+* [All contributors](https://github.com/tafoyaventures/digitaloceanv2/contributors)
 
 License
 -------
 
 DigitalOceanV2 is released under the MIT License. See the bundled
-[LICENSE](https://github.com/toin0u/DigitalOceanV2/blob/master/LICENSE) file for details.
+[LICENSE](https://github.com/tafoyaventures/digitaloceanv2/blob/master/LICENSE) file for details.

@@ -1,9 +1,9 @@
 {
-    "name"       : "toin0u/digitalocean-v2",
+    "name"       : "tafoyaventures/digitaloceanv2",
     "type"       : "library",
     "description": "DigitalOcean API v2 PHP 5.4+ library",
     "keywords"   : ["DigitalOcean", "API", "Cloud Hosting", "SSD", "VPS"],
-    "homepage"   : "https://github.com/toin0u/DigitalOceanV2",
+    "homepage"   : "https://github.com/tafoyaventures/digitaloceanv2",
     "license"    : "MIT",
 
     "authors": [
@@ -18,21 +18,27 @@
             "email"   : "yassir.hannoun@gmail.com",
             "homepage": "https://yassirh.com",
             "role"    : "Developer"
+        },
+        {
+            "name"    : "Brian Tafoya",
+            "email"   : "btafoya@tafoyaventures.com",
+            "homepage": "https://tafoyaventures.com",
+            "role"    : "Developer"
         }
     ],
 
     "support": {
-        "issues": "https://github.com/toin0u/DigitalOceanV2/issues",
-        "source": "https://github.com/toin0u/DigitalOceanV2"
+        "issues": "https://github.com/tafoyaventures/digitaloceanv2/issues",
+        "source": "https://github.com/tafoyaventures/digitaloceanv2"
     },
 
     "require": {
-        "php": "^7.1.0",
+        "php": ">=5.6.0",
         "ext-json": "*"
     },
 
     "require-dev": {
-        "kriswallsmith/buzz": "^0.16",
+        "kriswallsmith/buzz": "^0.15.2",
         "guzzlehttp/guzzle": "^5.3|^6.3",
         "phpspec/phpspec": "^2.5"
     },
